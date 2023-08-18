@@ -20,9 +20,16 @@ func main() {
 	//fmt.Println(user)
 
 	// Obtener todos los registros
-	users := models.ListUsers()
+	//users := models.ListUsers()
+	//fmt.Println(users)
+
+	//Obtener un los registros
+	users := models.GetUser(1)
 	fmt.Println(users)
 
 	// Eliminar tabla
 	//db.TruncateTable("users")
+
+	//cerrar conexion
+	db.Close()
 }

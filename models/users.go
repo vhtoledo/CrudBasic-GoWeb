@@ -52,3 +52,14 @@ func ListUsers() Users {
 	}
 	return users
 }
+
+//Obtener un Registro
+func GetUser(id int) *User {
+	user := NewUser("", "", "")
+	sql := "SELECT id, username, password, email FROM users WHERE id=?"
+	rows, _ := db.Query(sql, id)
+	for rows.Next() {
+		rows.Scan(&user.Id, &user.Username, &user.Password, &user.Email)
+	}
+	return user
+}
