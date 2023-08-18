@@ -38,3 +38,17 @@ func (user *User) insert() {
 	result, _ := db.Exec(sql, user.Username, user.Password, user.Email)
 	user.Id, _ = result.LastInsertId()
 }
+
+//Obtener todo el registro
+func ListUsers() Users {
+	sql := "SELECT id, username, password, email FROM users"
+	users := Users{}
+	rows, _ := db.Query(sql)
+
+	for rows.Next() {
+		user := User{}
+		rows.Scan(&user.Id, &user.Username, &user.Password, &user.Email)
+		users = append(users, user)
+	}
+	return users
+}

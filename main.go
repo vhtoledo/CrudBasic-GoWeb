@@ -16,8 +16,12 @@ func main() {
 	//db.CreateTable(models.UserSchema, "users")
 
 	// Insertar un registro
-	user := models.CreateUser("victor", "victor123", "victor@gmail.com")
-	fmt.Println(user)
+	//user := models.CreateUser("victor", "victor123", "victor@gmail.com")
+	//fmt.Println(user)
+
+	// Obtener todos los registros
+	users := models.ListUsers()
+	fmt.Println(users)
 
 	// Eliminar tabla
 	//db.TruncateTable("users")
