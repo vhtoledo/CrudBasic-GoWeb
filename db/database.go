@@ -8,7 +8,8 @@ import (
 )
 
 //creamos conexion a db
-const url = "root:123456@tpc(localhost:3306)/goweb_db"
+const url = "root:123456@tcp(localhost:3306)/goweb_db"
+
 // Guardar la Conexion
 var db *sql.DB
 
@@ -34,7 +35,24 @@ func Ping(){
 	}
 }
 
+// Verificar si una tabla existe o no
+func ExistsTable(tableName string) bool {
+	sql := fmt.Sprintf("SHOW TABLES LIKE '%s'", tableName)
+	rows, err := db.Query(sql)
+	if err != nil {
+		fmt.Println("Error: ", err)
+	}
+
+	return rows.Next()
+}
+
 // crea tabla usuarios
-func CreateTable(schema string) {
-	db.Exec(schema)
+func CreateTable(schema, name string) {
+
+	if !ExistsTable(name) {
+		_, err := db.Exec(schema)
+		if err != nil {
+			fmt.Println(err)
+		}
+	}
 }
