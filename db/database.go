@@ -57,6 +57,12 @@ func CreateTable(schema, name string) {
 	}
 }
 
+//Eliminara Tabla
+func TruncateTable(tableName string) {
+	sql := fmt.Sprintf("TRUNCATE %s", tableName)
+	db.Exec(sql)
+}
+
 //Polimorfismo a Exec
 func Exec(query string, args ...interface{}) (sql.Result, error) {
 	result, err := db.Exec(query, args...)

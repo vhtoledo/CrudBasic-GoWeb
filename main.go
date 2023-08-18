@@ -12,6 +12,9 @@ func main() {
 	db.Ping()
 	fmt.Println(db.ExistsTable("users"))
 
-	//Clear tabla
+	//Crear tabla
 	db.CreateTable(models.UserSchema, "users")
+
+	// Eliminar tabla
+	//db.TruncateTable("users")
 }
