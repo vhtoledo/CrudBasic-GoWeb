@@ -28,7 +28,7 @@ func NewUser(username, password, email string) *User {
 //Crear usuario e insertar
 func CreateUser(username, password, email string) *User {
 	user := NewUser(username, password, email)
-	user.insert()
+	user.Save()
 	return user
 }
 
