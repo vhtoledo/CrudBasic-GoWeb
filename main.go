@@ -24,8 +24,17 @@ func main() {
 	//fmt.Println(users)
 
 	//Obtener un los registros
-	users := models.GetUser(1)
-	fmt.Println(users)
+	//users := models.GetUser(1)
+	//fmt.Println(users)
+
+	//Actualizar registro por id
+	user := models.GetUser(1)
+	fmt.Println(user)
+	user.Username = "Hugo"
+	user.Password = "Hugo123"
+	user.Email = "hugo@gmail.com"
+	user.Save()
+	fmt.Println(models.ListUsers())
 
 	// Eliminar tabla
 	//db.TruncateTable("users")
