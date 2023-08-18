@@ -15,25 +15,31 @@ func main() {
 	//Crear tabla
 	//db.CreateTable(models.UserSchema, "users")
 
-	// Insertar un registro
-	//user := models.CreateUser("victor", "victor123", "victor@gmail.com")
+	//Insertar un registro
+	//user := models.CreateUser("agostina", "agostina123", "agostina@gmail.com")
 	//fmt.Println(user)
 
 	// Obtener todos los registros
-	//users := models.ListUsers()
-	//fmt.Println(users)
+	//user := models.ListUsers()
+	//fmt.Println(user)
 
 	//Obtener un los registros
-	//users := models.GetUser(1)
-	//fmt.Println(users)
+	//user := models.GetUser(1)
+	//fmt.Println(user)
 
 	//Actualizar registro por id
-	user := models.GetUser(1)
+	//user := models.GetUser(1)
+	//fmt.Println(user)
+	//user.Username = "Hugo"
+	//user.Password = "Hugo123"
+	//user.Email = "hugo@gmail.com"
+	//user.Save()
+	//fmt.Println(models.ListUsers())
+
+	//Eliminar un registro
+	user := models.GetUser(3)
 	fmt.Println(user)
-	user.Username = "Hugo"
-	user.Password = "Hugo123"
-	user.Email = "hugo@gmail.com"
-	user.Save()
+	user.Delete()
 	fmt.Println(models.ListUsers())
 
 	// Eliminar tabla
