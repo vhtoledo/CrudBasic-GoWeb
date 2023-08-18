@@ -37,13 +37,14 @@ func main() {
 	//fmt.Println(models.ListUsers())
 
 	//Eliminar un registro
-	user := models.GetUser(3)
-	fmt.Println(user)
-	user.Delete()
-	fmt.Println(models.ListUsers())
+	//user := models.GetUser(3)
+	//fmt.Println(user)
+	//user.Delete()
+	//fmt.Println(models.ListUsers())
 
-	// Eliminar tabla
-	//db.TruncateTable("users")
+	// Eliminar todos registro de la tabla
+	db.TruncateTable("users")
+	fmt.Println(models.ListUsers())
 
 	//cerrar conexion
 	db.Close()
